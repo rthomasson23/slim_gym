@@ -156,13 +156,38 @@ body {
   border-radius: 5px;
 }
 
-.video-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 15px;
+.video-grid-container {
   width: 90%;
   max-width: 1200px;
   margin: auto;
+}
+
+.grid-labels {
+  display: grid;
+  grid-template-columns: 1fr repeat(3, 1fr);
+  margin-bottom: 10px;
+}
+
+.column-label {
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+.grid-content {
+  display: grid;
+  grid-template-columns: auto repeat(3, 1fr);
+  grid-gap: 15px;
+}
+
+.row-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 10px;
 }
 
 .video-container {
@@ -172,10 +197,28 @@ body {
   overflow: hidden;
 }
 
-.video-container iframe {
+.video-container video {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+.subtitle {
+  word-wrap: break-word; /* Forcing the text to wrap within the container */
+  white-space: normal;   /* Ensures the text doesn't stay on one line */
+  max-width: 100%;      /* Optional: You can set a max-width to control the width of the text block */
+  margin: 0 auto;       /* Centers the text block within its container */
+}
+
+
+.iframe-container {
+  width: 100%;
+  height: 50vh; /* Adjust height as needed */
+}
+.iframe-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none; /* Remove the border for a cleaner look */
 }
