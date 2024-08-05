@@ -1,0 +1,159 @@
+<mujoco model="onshape">
+<compiler angle="radian"/>
+<size njmax="500" nconmax="100"/>
+<asset>
+<mesh name="palm" file="meshes/sslim_hand/palm.stl"/>
+<mesh name="thumb_base" file="meshes/sslim_hand/thumb_base.stl"/>
+<mesh name="thumb_proximal" file="meshes/sslim_hand/thumb_proximal.stl"/>
+<mesh name="thumb_distal" file="meshes/sslim_hand/thumb_distal.stl"/>
+<mesh name="proximal_left" file="meshes/sslim_hand/proximal_left.stl"/>
+<mesh name="distal_left" file="meshes/sslim_hand/distal_left.stl"/>
+<mesh name="proximal_right" file="meshes/sslim_hand/proximal_right.stl"/>
+<mesh name="distal_right" file="meshes/sslim_hand/distal_right.stl"/>
+
+<mesh name="palm_col_0" file="meshes/sslim_hand/palm_convex_piece_0.stl"/>
+<mesh name="palm_col_1" file="meshes/sslim_hand/palm_convex_piece_1.stl"/>
+<mesh name="palm_col_2" file="meshes/sslim_hand/palm_convex_piece_2.stl"/>
+<mesh name="palm_col_3" file="meshes/sslim_hand/palm_convex_piece_3.stl"/>
+<mesh name="palm_col_4" file="meshes/sslim_hand/palm_convex_piece_4.stl"/>
+<mesh name="palm_col_5" file="meshes/sslim_hand/palm_convex_piece_5.stl"/>
+<mesh name="palm_col_6" file="meshes/sslim_hand/palm_convex_piece_6.stl"/>
+
+<mesh name="thumb_base_col_0" file="meshes/sslim_hand/thumb_base_convex_piece_0.stl"/>
+<mesh name="thumb_base_col_1" file="meshes/sslim_hand/thumb_base_convex_piece_1.stl"/>
+<mesh name="thumb_base_col_2" file="meshes/sslim_hand/thumb_base_convex_piece_2.stl"/>
+
+<mesh name="thumb_proximal_col_0" file="meshes/sslim_hand/thumb_proximal_convex_piece_0.stl"/>
+<mesh name="thumb_proximal_col_1" file="meshes/sslim_hand/thumb_proximal_convex_piece_1.stl"/>
+<mesh name="thumb_proximal_col_2" file="meshes/sslim_hand/thumb_proximal_convex_piece_2.stl"/>
+<mesh name="thumb_proximal_col_3" file="meshes/sslim_hand/thumb_proximal_convex_piece_3.stl"/>
+
+<mesh name="thumb_distal_col_0" file="meshes/sslim_hand/thumb_distal_convex_piece_0.stl"/>
+<mesh name="thumb_distal_col_1" file="meshes/sslim_hand/thumb_distal_convex_piece_1.stl"/>
+<mesh name="thumb_distal_col_2" file="meshes/sslim_hand/thumb_distal_convex_piece_2.stl"/>
+<mesh name="thumb_distal_col_3" file="meshes/sslim_hand/thumb_distal_convex_piece_3.stl"/>
+<mesh name="thumb_distal_col_4" file="meshes/sslim_hand/thumb_distal_convex_piece_4.stl"/>
+
+<mesh name="proximal_left_col_0" file="meshes/sslim_hand/proximal_left_convex_piece_0.stl"/>
+<mesh name="proximal_left_col_1" file="meshes/sslim_hand/proximal_left_convex_piece_1.stl"/>
+<mesh name="proximal_left_col_2" file="meshes/sslim_hand/proximal_left_convex_piece_2.stl"/>
+<mesh name="proximal_left_col_3" file="meshes/sslim_hand/proximal_left_convex_piece_3.stl"/>
+<mesh name="proximal_left_col_4" file="meshes/sslim_hand/proximal_left_convex_piece_4.stl"/>
+<mesh name="proximal_left_col_5" file="meshes/sslim_hand/proximal_left_convex_piece_5.stl"/>
+
+<mesh name="proximal_right_col_0" file="meshes/sslim_hand/proximal_right_convex_piece_0.stl"/>
+<mesh name="proximal_right_col_1" file="meshes/sslim_hand/proximal_right_convex_piece_1.stl"/>
+<mesh name="proximal_right_col_2" file="meshes/sslim_hand/proximal_right_convex_piece_2.stl"/>
+<mesh name="proximal_right_col_3" file="meshes/sslim_hand/proximal_right_convex_piece_3.stl"/>
+<mesh name="proximal_right_col_4" file="meshes/sslim_hand/proximal_right_convex_piece_4.stl"/>
+<mesh name="proximal_right_col_5" file="meshes/sslim_hand/proximal_right_convex_piece_5.stl"/>
+
+</asset>
+
+
+<actuator> 
+<!-- true control range: -1.83 1.83 -->
+    
+    <position ctrllimited="true" ctrlrange="-1.83 1.83" joint="proximalLeftJoint" kp=".2" name="proximalLeftJoint" forcelimited="true" forcerange="-2 2"/>
+    <position ctrllimited="true" ctrlrange="-1.4 1.4" joint="distalLeftJoint" kp=".2" name="distalLeftJoint" forcelimited="true" forcerange="-2 2"/>
+    <position ctrllimited="true" ctrlrange="-1.83 1.83" joint="proximalRightJoint" kp=".2" name="proximalRightJoint" forcelimited="true" forcerange="-2 2"/>
+    <position ctrllimited="true" ctrlrange="-1.4 1.4" joint="distalRightJoint" kp=".2" name="distalRightJoint" forcelimited="true" forcerange="-2 2"/>
+    <position ctrllimited="true" ctrlrange="-0.044 0" joint="thumbSlideJoint" kp="10000" name="thumbSlideJoint" forcelimited="false"/>
+    <position ctrllimited="true" ctrlrange="-1.83 1.83" joint="thumbProximalJoint" kp=".2" name="thumbProximalJoint" forcelimited="true" forcerange="-2 2"/>
+    <position ctrllimited="true" ctrlrange="-1.4 1.4" joint="thumbDistalJoint" kp=".2" name="thumbDistalJoint" forcelimited="true" forcerange="-2 2"/>
+
+</actuator>
+
+<worldbody>
+
+<body name="palm" pos="0 -0.0165 -0.013" quat="0 0 0 1">
+    <site name="ft_frame" pos="0 -0.06 0" size="0.01 0.01 0.01" rgba="1 0 0 0" type="sphere" group="1"/>
+    <site name="grip_site" pos="0 -0.06 0" size="0.01 0.01 0.01" rgba="1 0 0 0" type="sphere" group="1"/>
+    <site name="grip_site_cylinder" pos="0 -0.06 0" size="0.005 .1" rgba="0 1 0 1" type="cylinder" group="2"/>
+    <inertial pos="0 -0.0438654 -0.039785" quat="0.669686 0.742644 0 0" mass="0.352386" diaginertia="0.000671316 0.000534497 0.000195499"/>
+    <geom pos="0 -0.1055 -0.0875" quat="0.707107 0.707107 0 0" type="mesh" contype="0" conaffinity="0" group="1" rgba="0.6 0.6 0.6 1" mesh="palm"/>
+    <!-- <geom pos="0 -0.1055 -0.0875" quat="0.707107 0.707107 0 0" type="mesh" rgba="0.6 0.6 0.6 1" mesh="palm_col_0"/> -->
+    <!-- <geom pos="0 -0.1055 -0.0875" quat="0.707107 0.707107 0 0" type="mesh" rgba="0.6 0.6 0.6 1" mesh="palm_col_1"/> -->
+    <geom pos="0 -0.1055 -0.0875" quat="0.707107 0.707107 0 0" type="mesh" rgba="0.6 0.6 0.6 1" condim="6" friction="1 1 1" mesh="palm_col_2"/>
+    <!-- <geom pos="0 -0.1055 -0.0875" quat="0.707107 0.707107 0 0" type="mesh" rgba="0.6 0.6 0.6 1" mesh="palm_col_3"/> -->
+    <geom pos="0 -0.1055 -0.0875" quat="0.707107 0.707107 0 0" type="mesh" rgba="0.6 0.6 0.6 1" condim="6" friction="1 1 1" mesh="palm_col_4"/>
+    <geom pos="0 -0.1055 -0.0875" quat="0.707107 0.707107 0 0" type="mesh" rgba="0.6 0.6 0.6 1" condim="6" friction="1 1 1" mesh="palm_col_5"/>
+    <geom pos="0 -0.1055 -0.0875" quat="0.707107 0.707107 0 0" type="mesh" rgba="0.6 0.6 0.6 1" condim="6" friction="1 1 1" mesh="palm_col_6"/>
+
+
+    <body name="thumb_base" pos="0.0142521 -0.08499997 -0.106" quat="0.707107 0.707107 0 0">
+        <inertial pos="-0.0142521 0.016 -0.0109991" quat="0.707107 0.707107 0 0" mass="0.0122697" diaginertia="3.06385e-06 2.54829e-06 2.11072e-06"/>
+        <joint name="thumbSlideJoint" pos="0 0 0" axis="0 0 1" type="slide" limited="true" damping="10000" range="-0.044 0"/>
+        <geom pos="-0.0142521 0.0175 0.0195" type="mesh" contype="0" conaffinity="0" group="1" rgba="0.6 0.6 0.6 1" mesh="thumb_base"/>
+        <geom pos="-0.0142521 0.0175 0.0195" type="mesh" rgba="0.6 0.6 0.6 1" condim="6" friction="1 1 1" mesh="thumb_base_col_0"/>
+        <geom pos="-0.0142521 0.0175 0.0195" type="mesh" rgba="0.6 0.6 0.6 1" condim="6" friction="1 1 1" mesh="thumb_base_col_1"/>
+        <geom pos="-0.0142521 0.0175 0.0195" type="mesh" rgba="0.6 0.6 0.6 1" condim="6" friction="1 1 1" mesh="thumb_base_col_2"/>
+        
+
+        <body name="thumb_proximal" pos="-0.0142521 0.0034 -0.022" quat="0.707107 0.707107 0 0">
+            <inertial pos="0 -0.0109598 -0.0126" quat="0.707107 0.707107 0 0" mass="0.0355556" diaginertia="1.13326e-05 1.03218e-05 4.29813e-06"/>
+            <joint name="thumbProximalJoint" pos="0 0 0" axis="0 0 1" limited="true" damping="0.1" range="-1.91986 1.91986"/>
+            <geom pos="0 0.0415 -0.0141" quat="0.707107 -0.707107 0 0" type="mesh" contype="0" conaffinity="0" group="1" rgba="0.8 0.776471 0.713726 1" mesh="thumb_proximal"/>
+            <geom pos="0 0.0415 -0.0141" quat="0.707107 -0.707107 0 0" type="mesh" rgba="0.8 0.776471 0.713726 1" condim="6" friction="1 1 1" mesh="thumb_proximal_col_0"/>
+            <geom pos="0 0.0415 -0.0141" quat="0.707107 -0.707107 0 0" type="mesh" rgba="0.8 0.776471 0.713726 1" condim="6" friction="1 1 1" mesh="thumb_proximal_col_1"/>
+            <geom pos="0 0.0415 -0.0141" quat="0.707107 -0.707107 0 0" type="mesh" rgba="0.8 0.776471 0.713726 1" condim="6" friction="1 1 1" mesh="thumb_proximal_col_2"/>
+            <geom pos="0 0.0415 -0.0141" quat="0.707107 -0.707107 0 0" type="mesh" rgba="0.8 0.776471 0.713726 1" condim="6" friction="1 1 1" mesh="thumb_proximal_col_3"/>
+
+            <body name="thumb_distal" pos="0 -0.044 0">
+                <inertial pos="0 -0.0121122 -0.0126" quat="0.707107 0.707107 0 0" mass="0.0239353" diaginertia="6.19262e-06 5.18231e-06 2.11386e-06"/>
+                <joint name="thumbDistalJoint" pos="0 0 0" axis="0 0 1" limited="true" damping="0.1" range="-1.91986 1.91986"/>
+                <geom pos="0 0.0855 -0.0141" quat="0.707107 -0.707107 0 0" type="mesh" contype="0" conaffinity="0"  group="1" rgba="0.890196 0.698039 0.639216 1" mesh="thumb_distal"/>
+                <geom pos="0 0.0855 -0.0141" quat="0.707107 -0.707107 0 0" type="mesh" rgba="0.890196 0.698039 0.639216 1" condim="6" friction="1 1 1" mesh="thumb_distal_col_0"/>
+                <geom pos="0 0.0855 -0.0141" quat="0.707107 -0.707107 0 0" type="mesh" rgba="0.890196 0.698039 0.639216 1" condim="6" friction="1 1 1" mesh="thumb_distal_col_1"/>
+                <geom pos="0 0.0855 -0.0141" quat="0.707107 -0.707107 0 0" type="mesh" rgba="0.890196 0.698039 0.639216 1" condim="6" friction="1 1 1" mesh="thumb_distal_col_2"/>
+                <geom pos="0 0.0855 -0.0141" quat="0.707107 -0.707107 0 0" type="mesh" rgba="0.890196 0.698039 0.639216 1" condim="6" friction="1 1 1" mesh="thumb_distal_col_3"/>
+                <geom pos="0 0.0855 -0.0141" quat="0.707107 -0.707107 0 0" type="mesh" rgba="0.890196 0.698039 0.639216 1" condim="6" friction="1 1 1" mesh="thumb_distal_col_4"/>
+                
+            </body>
+        </body>     
+    </body>
+
+    <body name="proximal_left" pos="0 -0.1055 -0.0034">
+        <inertial pos="-3.43653e-07 -0.0200027 -0.0120147" quat="0.650105 0.759844 -1.69933e-05 -9.38432e-06" mass="0.026416" diaginertia="1.01704e-05 8.54389e-06 2.9137e-06"/>
+        <joint name="proximalLeftJoint" pos="0 0 0" axis="0 0 1" limited="true" damping="0.1" range="-1.91986 1.91986"/>
+        <geom pos="0 0 -0.0841" quat="0.707107 0.707107 0 0" type="mesh" contype="0" conaffinity="0"  group="1" rgba="0.8 0.776471 0.713726 1" mesh="proximal_left"/>
+        <geom pos="0 0 -0.0841" quat="0.707107 0.707107 0 0" type="mesh" rgba="0.8 0.776471 0.713726 1" condim="6" friction="1 1 1" mesh="proximal_left_col_0"/>
+        <geom pos="0 0 -0.0841" quat="0.707107 0.707107 0 0" type="mesh" rgba="0.8 0.776471 0.713726 1" condim="6" friction="1 1 1" mesh="proximal_left_col_1"/>
+        <geom pos="0 0 -0.0841" quat="0.707107 0.707107 0 0" type="mesh" rgba="0.8 0.776471 0.713726 1" condim="6" friction="1 1 1" mesh="proximal_left_col_2"/>
+        <geom pos="0 0 -0.0841" quat="0.707107 0.707107 0 0" type="mesh" rgba="0.8 0.776471 0.713726 1" condim="6" friction="1 1 1" mesh="proximal_left_col_3"/>
+        <geom pos="0 0 -0.0841" quat="0.707107 0.707107 0 0" type="mesh" rgba="0.8 0.776471 0.713726 1" condim="6" friction="1 1 1" mesh="proximal_left_col_4"/>
+        <geom pos="0 0 -0.0841" quat="0.707107 0.707107 0 0" type="mesh" rgba="0.8 0.776471 0.713726 1" condim="6" friction="1 1 1" mesh="proximal_left_col_5"/>
+
+        <body name="distal_left" pos="0 -0.05 0">
+            <inertial pos="0 -0.0120522 -0.0141" quat="0.707107 0.707107 0 0" mass="0.0245925" diaginertia="7.49241e-06 5.96896e-06 2.50703e-06"/>
+            <joint name="distalLeftJoint" pos="0 0 0" axis="0 0 1" limited="true" damping="0.1" range="-1.91986 1.91986"/>
+            <geom pos="0 0.05 -0.0841" quat="0.707107 0.707107 0 0" type="mesh" contype="0" conaffinity="0" group="1" rgba="0.890196 0.698039 0.639216 1" mesh="distal_left"/>
+            <geom pos="0 0.05 -0.0841" quat="0.707107 0.707107 0 0" type="mesh" rgba="0.890196 0.698039 0.639216 1" condim="6" friction="1 1 1" mesh="distal_left"/>
+        </body>
+    </body>
+    <body name="proximal_right" pos="0 -0.1055 -0.0824">
+        <inertial pos="-3.43653e-07 -0.0200027 -0.00718527" quat="0.759844 0.650105 -9.38432e-06 -1.69933e-05" mass="0.026416" diaginertia="1.01704e-05 8.54389e-06 2.9137e-06"/>
+        <joint name="proximalRightJoint" pos="0 0 0" axis="0 0 1" limited="true" damping="0.1" range="-1.91986 1.91986"/>
+        <geom pos="0 0 -0.0051" quat="0.707107 0.707107 0 0" type="mesh" contype="0" conaffinity="0" group="1" rgba="0.8 0.776471 0.713726 1" mesh="proximal_right"/>
+        <geom pos="0 0 -0.0051" quat="0.707107 0.707107 0 0" type="mesh" rgba="0.8 0.776471 0.713726 1" condim="6" friction="1 1 1" mesh="proximal_right_col_0"/>
+        <geom pos="0 0 -0.0051" quat="0.707107 0.707107 0 0" type="mesh" rgba="0.8 0.776471 0.713726 1" condim="6" friction="1 1 1" mesh="proximal_right_col_1"/>
+        <geom pos="0 0 -0.0051" quat="0.707107 0.707107 0 0" type="mesh" rgba="0.8 0.776471 0.713726 1" condim="6" friction="1 1 1" mesh="proximal_right_col_2"/>
+        <geom pos="0 0 -0.0051" quat="0.707107 0.707107 0 0" type="mesh" rgba="0.8 0.776471 0.713726 1" condim="6" friction="1 1 1" mesh="proximal_right_col_3"/>
+        <geom pos="0 0 -0.0051" quat="0.707107 0.707107 0 0" type="mesh" rgba="0.8 0.776471 0.713726 1" condim="6" friction="1 1 1" mesh="proximal_right_col_4"/>
+        <geom pos="0 0 -0.0051" quat="0.707107 0.707107 0 0" type="mesh" rgba="0.8 0.776471 0.713726 1" condim="6" friction="1 1 1" mesh="proximal_right_col_5"/>
+
+        <body name="distal_right" pos="0 -0.05 0.009" quat="0 0 0 1">
+            <inertial pos="0 0.0120522 -0.0141" quat="0.707107 0.707107 0 0" mass="0.0245925" diaginertia="7.49241e-06 5.96896e-06 2.50703e-06"/>
+            <joint name="distalRightJoint" pos="0 0 0" axis="0 0 1" limited="true" damping="0.1" range="-1.91986 1.91986"/>
+            <geom pos="0 -0.05 -0.0141" quat="0.707107 -0.707107 0 0" type="mesh" contype="0" conaffinity="0" group="1" rgba="0.890196 0.698039 0.639216 1" mesh="distal_right"/>
+            <geom pos="0 -0.05 -0.0141" quat="0.707107 -0.707107 0 0" type="mesh" rgba="0.890196 0.698039 0.639216 1" condim="6" friction="1 1 1" mesh="distal_right"/>
+        </body>
+    </body>
+</body>
+
+</worldbody>
+<sensor>
+    <force name="force_ee" site="ft_frame"/>
+    <torque name="torque_ee" site="ft_frame"/>
+</sensor>
+</mujoco>

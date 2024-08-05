@@ -1,0 +1,351 @@
+<robot name="onshape">
+<link name="forearm">
+<visual>
+<origin xyz="1.73472e-17 -0.175762 0.154323" rpy="-1.06859e-15 2.94903e-17 -2.498e-16" />
+<geometry>
+<mesh filename="package:///forearm.stl"/>
+</geometry>
+<material name="forearm_material">
+<color rgba="0.34902 0.376471 0.4 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="1.73472e-17 -0.175762 0.154323" rpy="-1.06859e-15 2.94903e-17 -2.498e-16" />
+<geometry>
+<mesh filename="package:///forearm.stl"/>
+</geometry>
+<material name="forearm_material">
+<color rgba="0.34902 0.376471 0.4 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="6.62089e-08 -0.0281022 0.0303745" rpy="0 0 0"/>
+<mass value="0.106111" />
+<inertia ixx="0.000116795" ixy="-9.6621e-11"  ixz="-6.78699e-11" iyy="5.42761e-05" iyz="4.12198e-05" izz="8.06696e-05" />
+</inertial>
+</link>
+
+<link name="box">
+<visual>
+<origin xyz="3.46945e-18 0.106 -0.113" rpy="3.14159 -9.52021e-33 6.41897e-17" />
+<geometry>
+<mesh filename="package:///box.stl"/>
+</geometry>
+<material name="box_material">
+<color rgba="0.980392 0.713725 0.00392157 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="3.46945e-18 0.106 -0.113" rpy="3.14159 -9.52021e-33 6.41897e-17" />
+<geometry>
+<mesh filename="package:///box.stl"/>
+</geometry>
+<material name="box_material">
+<color rgba="0.980392 0.713725 0.00392157 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-3.14048e-18 0.000550903 -0.009" rpy="0 0 0"/>
+<mass value="0.00525901" />
+<inertia ixx="2.8019e-07" ixy="-2.07994e-23"  ixz="-7.85667e-39" iyy="2.97238e-07" iyz="-3.05134e-38" izz="2.93441e-07" />
+</inertial>
+</link>
+
+<link name="finger_base">
+<visual>
+<origin xyz="-1.04083e-17 -0.104 -0.097" rpy="1.5708 -9.02936e-18 4.62895e-18" />
+<geometry>
+<mesh filename="package:///finger_base.stl"/>
+</geometry>
+<material name="finger_base_material">
+<color rgba="0.6 0.6 0.6 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="-1.04083e-17 -0.104 -0.097" rpy="1.5708 -9.02936e-18 4.62895e-18" />
+<geometry>
+<mesh filename="package:///finger_base.stl"/>
+</geometry>
+<material name="finger_base_material">
+<color rgba="0.6 0.6 0.6 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-7.02522e-09 -0.0458078 -0.0469358" rpy="0 0 0"/>
+<mass value="0.263181" />
+<inertia ixx="0.000456745" ixy="5.42367e-11"  ixz="7.01823e-11" iyy="0.000159375" iyz="-4.87357e-05" izz="0.000336232" />
+</inertial>
+</link>
+
+<link name="proximal_left">
+<visual>
+<origin xyz="-2.42861e-17 0 -0.013" rpy="-1.5708 -3.07616e-18 4.27665e-18" />
+<geometry>
+<mesh filename="package:///proximal_left.stl"/>
+</geometry>
+<material name="proximal_left_material">
+<color rgba="0.8 0.776471 0.713725 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="-2.42861e-17 0 -0.013" rpy="-1.5708 -3.07616e-18 4.27665e-18" />
+<geometry>
+<mesh filename="package:///proximal_left.stl"/>
+</geometry>
+<material name="proximal_left_material">
+<color rgba="0.8 0.776471 0.713725 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="1.99534e-09 0.0171572 -0.0115186" rpy="0 0 0"/>
+<mass value="0.0345732" />
+<inertia ixx="1.13395e-05" ixy="2.78763e-13"  ixz="-2.52006e-12" iyy="4.85194e-06" iyz="7.98802e-07" izz="1.03059e-05" />
+</inertial>
+</link>
+
+<link name="distal_left">
+<visual>
+<origin xyz="-3.95517e-16 -0.045 -0.013" rpy="-1.5708 3.73372e-17 -2.42761e-18" />
+<geometry>
+<mesh filename="package:///distal_left.stl"/>
+</geometry>
+<material name="distal_left_material">
+<color rgba="0.890196 0.698039 0.639216 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="-3.95517e-16 -0.045 -0.013" rpy="-1.5708 3.73372e-17 -2.42761e-18" />
+<geometry>
+<mesh filename="package:///distal_left.stl"/>
+</geometry>
+<material name="distal_left_material">
+<color rgba="0.890196 0.698039 0.639216 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-8.65838e-06 0.0154507 -0.0128245" rpy="0 0 0"/>
+<mass value="0.0267849" />
+<inertia ixx="7.7143e-06" ixy="-2.76963e-09"  ixz="-3.72842e-09" iyy="2.85824e-06" iyz="7.58796e-08" izz="6.44076e-06" />
+</inertial>
+</link>
+
+<joint name="distalLeftJoint" type="revolute">
+<origin xyz="3.98986e-16 0.045 0" rpy="3.14405e-16 -3.40613e-16 -1.33316e-16" />
+<parent link="proximal_left" />
+<child link="distal_left" />
+<axis xyz="0 0 1"/>
+<limit effort="1" velocity="20" lower="-1.5708" upper="1.5708"/>
+<joint_properties friction="0.0"/>
+</joint>
+
+<joint name="proximalLeftJoint" type="revolute">
+<origin xyz="3.46945e-18 -0.104 -0.11" rpy="-3.14159 8.83883e-14 3.32186e-14" />
+<parent link="finger_base" />
+<child link="proximal_left" />
+<axis xyz="0 0 1"/>
+<limit effort="1" velocity="20" lower="-1.5708" upper="1.5708"/>
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="proximal_right">
+<visual>
+<origin xyz="-1.04083e-17 0 -0.083" rpy="1.5708 -2.03654e-17 -1.2545e-17" />
+<geometry>
+<mesh filename="package:///proximal_right.stl"/>
+</geometry>
+<material name="proximal_right_material">
+<color rgba="0.8 0.776471 0.713725 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="-1.04083e-17 0 -0.083" rpy="1.5708 -2.03654e-17 -1.2545e-17" />
+<geometry>
+<mesh filename="package:///proximal_right.stl"/>
+</geometry>
+<material name="proximal_right_material">
+<color rgba="0.8 0.776471 0.713725 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="3.90829e-09 -0.0171529 -0.0115175" rpy="0 0 0"/>
+<mass value="0.0345675" />
+<inertia ixx="1.13426e-05" ixy="8.81049e-13"  ixz="-2.79259e-12" iyy="4.85152e-06" iyz="-7.9792e-07" izz="1.0309e-05" />
+</inertial>
+</link>
+
+<link name="distal_right">
+<visual>
+<origin xyz="-4.05925e-16 0.045 -0.083" rpy="1.5708 -3.83357e-17 -1.68991e-19" />
+<geometry>
+<mesh filename="package:///distal_right.stl"/>
+</geometry>
+<material name="distal_right_material">
+<color rgba="0.890196 0.698039 0.639216 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="-4.05925e-16 0.045 -0.083" rpy="1.5708 -3.83357e-17 -1.68991e-19" />
+<geometry>
+<mesh filename="package:///distal_right.stl"/>
+</geometry>
+<material name="distal_right_material">
+<color rgba="0.890196 0.698039 0.639216 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="6.992e-10 -0.0154703 -0.012805" rpy="0 0 0"/>
+<mass value="0.0268187" />
+<inertia ixx="7.73491e-06" ixy="1.0101e-11"  ixz="2.75105e-12" iyy="2.86816e-06" iyz="-6.84135e-08" izz="6.45501e-06" />
+</inertial>
+</link>
+
+<joint name="distalRightJoint" type="revolute">
+<origin xyz="4.02456e-16 -0.045 4.16334e-17" rpy="-5.49305e-14 -8.9288e-14 -3.46089e-15" />
+<parent link="proximal_right" />
+<child link="distal_right" />
+<axis xyz="0 0 1"/>
+<limit effort="1" velocity="20" lower="-1.5708" upper="1.5708"/>
+<joint_properties friction="0.0"/>
+</joint>
+
+<joint name="proximalRightJoint" type="revolute">
+<origin xyz="0 -0.104 -0.014" rpy="5.50177e-14 8.92273e-14 3.31501e-14" />
+<parent link="finger_base" />
+<child link="proximal_right" />
+<axis xyz="0 0 1"/>
+<limit effort="1" velocity="20" lower="-1.5708" upper="1.5708"/>
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="thumb_base">
+<visual>
+<origin xyz="-0.0025 -1.04083e-17 -0.019" rpy="-1.5708 -1.5708 0" />
+<geometry>
+<mesh filename="package:///thumb_base.stl"/>
+</geometry>
+<material name="thumb_base_material">
+<color rgba="0.6 0.6 0.6 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="-0.0025 -1.04083e-17 -0.019" rpy="-1.5708 -1.5708 0" />
+<geometry>
+<mesh filename="package:///thumb_base.stl"/>
+</geometry>
+<material name="thumb_base_material">
+<color rgba="0.6 0.6 0.6 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0164306 -6.63884e-18 -0.0121333" rpy="0 0 0"/>
+<mass value="0.0116768" />
+<inertia ixx="2.79506e-06" ixy="4.00012e-23"  ixz="-2.37018e-22" iyy="2.42254e-06" iyz="4.56552e-08" izz="1.77318e-06" />
+</inertial>
+</link>
+
+<link name="thumb_proximal">
+<visual>
+<origin xyz="0 -3.46945e-18 -0.0285" rpy="-1.5708 2.8916e-18 9.18812e-18" />
+<geometry>
+<mesh filename="package:///thumb_proximal.stl"/>
+</geometry>
+<material name="thumb_proximal_material">
+<color rgba="0.8 0.776471 0.713725 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="0 -3.46945e-18 -0.0285" rpy="-1.5708 2.8916e-18 9.18812e-18" />
+<geometry>
+<mesh filename="package:///thumb_proximal.stl"/>
+</geometry>
+<material name="thumb_proximal_material">
+<color rgba="0.8 0.776471 0.713725 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0158885 -4.7044e-08 -0.0142305" rpy="0 0 0"/>
+<mass value="0.0255561" />
+<inertia ixx="4.26017e-06" ixy="-6.34908e-12"  ixz="-5.45534e-08" iyy="7.47005e-06" iyz="-5.47665e-12" izz="6.74296e-06" />
+</inertial>
+</link>
+
+<link name="thumb_distal">
+<visual>
+<origin xyz="0.04 2.46331e-16 -0.0285" rpy="-1.5708 2.524e-18 -4.87238e-18" />
+<geometry>
+<mesh filename="package:///thumb_distal.stl"/>
+</geometry>
+<material name="thumb_distal_material">
+<color rgba="0.890196 0.698039 0.639216 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="0.04 2.46331e-16 -0.0285" rpy="-1.5708 2.524e-18 -4.87238e-18" />
+<geometry>
+<mesh filename="package:///thumb_distal.stl"/>
+</geometry>
+<material name="thumb_distal_material">
+<color rgba="0.890196 0.698039 0.639216 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0145875 1.55149e-08 -0.014134" rpy="0 0 0"/>
+<mass value="0.0281605" />
+<inertia ixx="2.98656e-06" ixy="-6.2953e-12"  ixz="-3.85322e-08" iyy="7.72315e-06" iyz="2.41794e-12" izz="6.22643e-06" />
+</inertial>
+</link>
+
+<joint name="thumbDistalJoint" type="revolute">
+<origin xyz="-0.04 -2.46331e-16 5.55112e-17" rpy="-1.22906e-15 9.87567e-17 3.50421e-17" />
+<parent link="thumb_proximal" />
+<child link="thumb_distal" />
+<axis xyz="0 0 1"/>
+<limit effort="1" velocity="20" lower="-1.5708" upper="1.5708"/>
+<joint_properties friction="0.0"/>
+</joint>
+
+<joint name="thumbProximalJoint" type="revolute">
+<origin xyz="-0.031 -3.1225e-17 -0.019" rpy="2.15822e-16 -1.5708 0" />
+<parent link="thumb_base" />
+<child link="thumb_proximal" />
+<axis xyz="0 0 1"/>
+<limit effort="1" velocity="20" lower="-1.5708" upper="1.5708"/>
+<joint_properties friction="0.0"/>
+</joint>
+
+<joint name="thumbSlideJoint" type="prismatic">
+<origin xyz="9.85323e-16 -0.085 -0.08" rpy="1.5708 -1.5708 0" />
+<parent link="finger_base" />
+<child link="thumb_base" />
+<axis xyz="0 0 1"/>
+<limit effort="1" velocity="20" lower="-0.065" upper="0"/>
+<joint_properties friction="0.0"/>
+</joint>
+
+<joint name="wristYawJoint" type="revolute">
+<origin xyz="-6.93889e-18 0.009 -0.009" rpy="1.5708 -0.0924544 9.30245e-15" />
+<parent link="box" />
+<child link="finger_base" />
+<axis xyz="0 0 1"/>
+<limit effort="1" velocity="20" lower="-3.14159" upper="3.14159"/>
+<joint_properties friction="0.0"/>
+</joint>
+
+<joint name="wristPitchJoint" type="revolute">
+<origin xyz="3.1225e-17 -0.0697616 0.0413234" rpy="3.14159 3.11629e-16 0.284713" />
+<parent link="forearm" />
+<child link="box" />
+<axis xyz="0 0 1"/>
+<limit effort="1" velocity="20" lower="-1.5708" upper="1.5708"/>
+<joint_properties friction="0.0"/>
+</joint>
+
+<mujoco>
+      <compiler 
+      meshdir="./meshes/sslim_gripper/" 
+      balanceinertia="true" 
+      discardvisual="false" />
+</mujoco>
+
+
+</robot>

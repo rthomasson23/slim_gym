@@ -1,0 +1,94 @@
+<mujoco model="rizon4">
+
+    <actuator>
+        <!--  Physical limits of the actuator.  -->
+        <motor ctrllimited="true" ctrlrange="-150.0 150.0" joint="joint1" name="torq_j1"/>
+        <motor ctrllimited="true" ctrlrange="-150.0 150.0" joint="joint2" name="torq_j2"/>
+        <motor ctrllimited="true" ctrlrange="-150.0 150.0" joint="joint3" name="torq_j3"/>
+        <motor ctrllimited="true" ctrlrange="-28.0 28.0" joint="joint4" name="torq_j4"/>
+        <motor ctrllimited="true" ctrlrange="-28.0 28.0" joint="joint5" name="torq_j5"/>
+        <motor ctrllimited="true" ctrlrange="-28.0 28.0" joint="joint6" name="torq_j6"/>
+        <motor ctrllimited="true" ctrlrange="-28.0 28.0" joint="joint7" name="torq_j7"/>
+    </actuator>
+
+    <asset>
+        <mesh name="link0" file="meshes/link0.stl" />
+        <mesh name="link1" file="meshes/link1.stl" />
+        <mesh name="link2" file="meshes/link2.stl" />
+        <mesh name="link3" file="meshes/link3.stl" />
+        <mesh name="link4" file="meshes/link4.stl" />
+        <mesh name="link5" file="meshes/link5.stl" />
+        <mesh name="link6" file="meshes/link6.stl" />
+        <mesh name="link7" file="meshes/link7.stl" />
+    </asset>
+
+    <worldbody>
+
+        <body name="base" pos="0 0 0">
+
+            <!-- robot view -->
+            <camera mode="fixed" name="robotview" pos="1.0 0 0.4" quat="0.653 0.271 0.271 0.653"/>
+            <inertial diaginertia="0 0 0" mass="0" pos="0 0 0"/>
+            <!-- mount attached here -->
+
+
+            <geom quat="-2.32051e-08 0 0 -1" type="mesh" contype="0" conaffinity="0" group="1" mesh="link0" />
+            <geom quat="-2.32051e-08 0 0 -1" type="mesh" mesh="link0" rgba="1 1 1 .3" />
+            <body name="link1" pos="0 0 0.155" quat="-1 0 0 2.32051e-08">
+                <inertial pos="0 0 0" mass="3.7" diaginertia="0.03 0.03 0.01" />
+                <joint name="joint1" pos="0 0 0" axis="0 0 1" limited="true" range="-2.7925 2.7925" />
+                <geom type="mesh" contype="0" conaffinity="0" group="1" mesh="link1" rgba="1 1 1 .3" />
+                <geom type="mesh" mesh="link1" rgba="1 1 1 .3" />
+                <body name="link2" pos="0 0.03 0.21">
+                    <inertial pos="0 0 0" mass="2.7" diaginertia="0.02 0.02 0.02" />
+                    <joint name="joint2" pos="0 0 0" axis="0 1 0" limited="true" range="-2.2689 2.2689" />
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" mesh="link2" rgba="1 1 1 .3" />
+                    <geom type="mesh" mesh="link2" rgba="1 1 1 .3" />
+                    <body name="link3" pos="0 0.035 0.205">
+                        <inertial pos="0 0 0" mass="2.4" diaginertia="0.01 0.01 0.01" />
+                        <joint name="joint3" pos="0 0 0" axis="0 0 1" limited="true" range="-2.9671 2.9671" />
+                        <geom type="mesh" contype="0" conaffinity="0" group="1" mesh="link3" rgba="1 1 1 .3" />
+                        <geom type="mesh" mesh="link3" rgba="1 1 1 .3" />
+                        <body name="link4" pos="-0.02 -0.03 0.19" quat="0 0 0 -1">
+                            <inertial pos="0 0 0" mass="2.4" diaginertia="0.02 0.02 0.02" />
+                            <joint name="joint4" pos="0 0 0" axis="0 1 0" limited="true" range="-1.8675 2.6878" />
+                            <geom type="mesh" contype="0" conaffinity="0" group="1" mesh="link4" rgba="1 1 1 .3" />
+                            <geom type="mesh" mesh="link4" rgba="1 1 1 .3" />
+                            <body name="link5" pos="-0.02 0.025 0.195" quat="0 0 0 -1">
+                                <inertial pos="0 0 0" mass="2.4" diaginertia="0.01 0.01 0.01" />
+                                <joint name="joint5" pos="0 0 0" axis="0 0 1" limited="true" range="-2.9671 2.9671" />
+                                <geom type="mesh" contype="0" conaffinity="0" group="1" mesh="link5" rgba="1 1 1 .3" />
+                                <geom type="mesh" mesh="link5" rgba="1 1 1 .3" />
+                                <body name="link6" pos="0 0.03 0.19">
+                                    <inertial pos="0 0 0" mass="2.1" diaginertia="0.01 0.01 0.01" />
+                                    <joint name="joint6" pos="0 0 0" axis="0 1 0" limited="true" range="-1.3963 4.5379" />
+                                    <geom type="mesh" contype="0" conaffinity="0" group="1" mesh="link6" rgba="1 1 1 .3" />
+                                    <geom type="mesh" mesh="link6" rgba="1 1 1 .3" />
+                                    <body name="link7" pos="-0.055 0.07 0.11" quat="0.707107 0 -0.707107 0">
+                                        <inertial pos="0 0 0" mass="0.8" diaginertia="0.01 0.01 0.01" />
+                                        <joint name="joint7" pos="0 0 0" axis="0 0 1" limited="true" range="-2.9671 2.9671" />
+                                        <geom type="mesh" contype="0" conaffinity="0" group="1" mesh="link7" rgba="1 1 1 .3" />
+                                        <geom type="mesh" mesh="link7" rgba="1 1 1 .3" />
+                                            <body name="right_hand" pos="0 0 0.08" quat="-1 0 0 0">
+                                                <!-- This sites were added for visualization. They are all standardized between models-->
+                                                <!-- Position mimics the gripper attachment point (right_hand) -->
+                                                <!--  Y-axis should be perpendicular to grasping motion, and Z-axis should point out of the robot eef -->
+                                                <site name="ee" pos="0 0 0" size="0.01 0.01 0.01" rgba="0 0 1 1" type="sphere" group="1"/>
+                                                <site name="ee_x" pos="0 0 0" size="0.005 .1"  quat="0.707105 0.707108 0 0 " rgba="1 0 0 0" type="cylinder" group="0"/>
+                                                <site name="ee_z" pos="0 0 0" size="0.005 .1" quat="0.707105 0 0 0.707108" rgba="0 0 1 0" type="cylinder" group="0"/>
+                                                <site name="ee_y" pos="0 0 0" size="0.005 .1" quat="0.707105 0 0.707108 0 " rgba="0 1 0 0" type="cylinder" group="0"/>
+                                                <!-- This camera points out from the eef. -->
+                                                <camera mode="fixed" name="eye_in_hand" pos="0.05 0 0" quat="0 0.707108 0.707108 0" fovy="75"/>
+                                                <!-- to add gripper -->
+                                            </body>
+
+                                    </body>
+                                </body>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body>
+        </body>
+    </worldbody>
+</mujoco>

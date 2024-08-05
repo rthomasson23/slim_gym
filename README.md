@@ -1,2 +1,2 @@
-Open-sourced code coming soon.
+Open-sourced code for SLIM user studies. Cleanup needed. 
 

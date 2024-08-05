@@ -1,0 +1,103 @@
+<mujoco model="cabinet_arena">
+
+  <asset>
+    <texture builtin="gradient" height="256" rgb1=".9 .9 1." rgb2=".2 .3 .4" type="skybox" width="256"/>
+    <texture file="../textures/wood-tiles.png" type="2d" name="texplane"/>
+    <material name="floorplane" reflectance="0.01" shininess="0.0" specular="0.0" texrepeat="2 2" texture="texplane" texuniform="true"/>
+    <!-- ceramic table texture and material-->
+    <texture file="../textures/ceramic.png" type="cube" name="tex-ceramic"/>
+    <material name="table_ceramic" reflectance="0.0" shininess="0.0" specular="0.2" texrepeat="1 1" texture="tex-ceramic" />
+    <!-- steel legs -->
+    <texture file="../textures/steel-brushed.png" type="cube" name="tex-steel-brushed"/>
+    <material name="table_legs_metal" reflectance="0.8" shininess="0.8" texrepeat="1 1" texture="tex-steel-brushed" rgba="1 1 1 0.3"/>
+    <material name="table_legs_metal2" reflectance="0.8" shininess="0.8" texrepeat="1 1" texture="tex-steel-brushed" rgba="1 1 1 0.3"/>
+
+    <!-- plaster walls -->
+    <texture file="../textures/cream-plaster.png" type="2d" name="tex-cream-plaster"/>
+    <material name="walls_mat" reflectance="0.0" shininess="0.1" specular="0.1" texrepeat="3 3" texture="tex-cream-plaster" texuniform="true" />
+    <!-- added table texture and material for domain randomization -->
+    <texture  name="textable" builtin="flat" height="512" width="512" rgb1="0.5 0.5 0.5" rgb2="0.5 0.5 0.5"/>
+    <material name="table_mat" texture="textable" />
+
+    <mesh name="cabinet" file="meshes/kitchen_cabinet.stl" />
+
+  </asset>
+  <worldbody>
+    <!-- Floor -->
+    <geom condim="3" material="floorplane" name="floor" pos="0 0 0" size="3 3 .125" type="plane"/>
+    <!-- Walls (visual only) -->
+    <geom pos="-1.25 2.25 1.5" quat="0.6532815 0.6532815 0.2705981 0.2705981" size="1.06 1.5 0.01" type="box" conaffinity="0" contype="0" group="1" name="wall_leftcorner_visual" material="walls_mat"/>
+    <geom pos="-1.25 -2.25 1.5" quat="0.6532815 0.6532815 -0.2705981 -0.2705981" size="1.06 1.5 0.01" type="box" conaffinity="0" contype="0" group="1" name="wall_rightcorner_visual" material="walls_mat"/>
+    <geom pos="1.25 3 1.5" quat="0.7071 0.7071 0 0" size="1.75 1.5 0.01" type="box" conaffinity="0" contype="0" group="1" name="wall_left_visual" material="walls_mat"/>
+    <geom pos="1.25 -3 1.5" quat="0.7071 -0.7071 0 0" size="1.75 1.5 0.01" type="box" conaffinity="0" contype="0" group="1" name="wall_right_visual" material="walls_mat"/>
+    <geom pos="-2 0 1.5" quat="0.5 0.5 0.5 0.5" size="1.5 1.5 0.01" type="box" conaffinity="0" contype="0" group="1" name="wall_rear_visual" material="walls_mat"/>
+    <geom pos="3 0 1.5" quat="0.5 0.5 -0.5 -0.5" size="3 1.5 0.01" type="box" conaffinity="0" contype="0" group="1" name="wall_front_visual" material="walls_mat"/>
+    <!-- Table body -->
+    <body name="table" pos="0 0 0.4">
+      <geom pos="0 0 0" size="0.4 0.4 0.4" type="box" group="0" name="table_collision" solimp="0.9 0.95 0.001 0.5 2" solmix="10000" solref="0.001 2" priority="1"/>
+      <geom pos="0 0 0" size="0.4 0.4 0.4" type="box" conaffinity="0" contype="0" group="1" name="table_visual" material="table_legs_metal"/>
+
+      <!-- drawer used to be 0.14 in y -->
+      <!-- drawer Sides (visual only) --> 
+      <geom pos="0.0 0.14 0.13" size="0.2 0.01 0.11" type="box" conaffinity="0" contype="0" group="1" name="drawer_visual" material="table_legs_metal2" priority="1"/>
+      <geom pos="0.0 -0.14 0.13" size="0.2 0.01 0.11" type="box" conaffinity="0" contype="0" group="1" name="drawer_visual1" material="table_legs_metal" priority="1"/>
+      <!-- drawer Back (visual only) -->
+      <geom pos="0.19 0 0.13" size="0.01 0.14 0.11" type="box" conaffinity="0" contype="0" group="1" name="drawer_visual3" material="table_legs_metal" priority="1"/> 
+      <!-- drawer Front (visual only) -->
+      <geom pos="-0.19 0 0.13" size="0.01 0.14 0.11" type="box" conaffinity="0" contype="0" group="1" name="drawer_visual4" material="table_legs_metal" priority="1"/> 
+
+      <!-- Cabinet Top (visual only) -->
+      <!-- <geom pos="0.25 0 0.2" size="0.2 0.175 0.01" type="box" conaffinity="0" contype="0" group="1" name="drawer_visual2" material="table_legs_metal"/> -->
+       <!-- Cabinet Sides (visual only) --> 
+      <!-- <geom pos="0.25 0.165 0.08" size="0.2 0.01 0.16" type="box" conaffinity="0" contype="0" group="1" name="cabinet_visual" material="table_legs_metal"/> -->
+      <!-- <geom pos="0.25 -0.165 0.08" size="0.2 0.01 0.16" type="box" conaffinity="0" contype="0" group="1" name="cabinet_visual1" material="table_legs_metal"/> -->
+       <!-- Cabinet Back (visual only) -->
+      <!-- <geom pos="0.44 0 0.08" size="0.01 0.175 0.16" type="box" conaffinity="0" contype="0" group="1" name="cabinet_visual2" material="table_legs_metal"/>  -->
+      <!-- Cabinet Bottom (visual only) -->
+      <!-- <geom pos="0.25 0 -0.04" size="0.2 0.175 0.01" type="box" conaffinity="0" contype="0" group="1" name="cabinet_visual3" material="table_legs_metal"/> -->
+
+       <!-- drawer Sides (collision only) -->
+      <geom condim = "3" pos="0.0 0.14 0.13" size="0.2 0.01 0.11" type="box" name="drawer_collision" solimp="0.9 0.95 0.001 0.5 2" solmix="10000" friction="0.4 0.005 0.0001" solref="0.00001 2"  priority = "3"/>
+      <geom condim = "3" pos="0.0 -0.14 0.13" size="0.2 0.01 0.11" type="box" name="drawer_collision1" solimp="0.9 0.95 0.001 0.5 2" solmix="10000" friction="0.4 0.005 0.0001" solref="0.00001 2"  priority = "3"/>
+      <!-- drawer Back (collision only) -->
+      <geom condim = "3" pos="0.19 0 0.13" size="0.01 0.14 0.11" type="box" name="drawer_collision2" solimp="0.9 0.95 0.001 0.5 2" solmix="10000" friction="0.4 0.005 0.0001" solref="0.00001 2"  priority = "3"/> 
+      <!-- drawer Front (collision only) -->
+      <geom condim = "3" pos="-0.19 0 0.13" size="0.01 0.14 0.11" type="box" name="drawer_collision3" solimp="0.9 0.95 0.001 0.5 2" solmix="10000" friction="0.4 0.005 0.0001" solref="0.00001 2"  priority = "3"/> 
+      <site pos="0 0 0.4" name="table_top" size="0.001 0.001 0.001" rgba="0 0 0 0"/>
+
+      <!-- Cabinet Top (collision only) -->
+      <!-- <geom pos="0.25 0 0.2" size="0.2 0.175 0.01" type="box" name="cabinet_collision" friction="0.1 0.005 0.0001"/> -->
+       <!-- Cabinet Sides (collision only) --> 
+      <!-- <geom pos="0.25 0.165 0.08" size="0.2 0.01 0.12" type="box" name="cabinet_collision1" friction="0.1 0.005 0.0001"/> -->
+      <!-- <geom pos="0.25 -0.165 0.08" size="0.2 0.01 0.12" type="box" name="cabinet_collision2" friction="0.1 0.005 0.0001"/> -->
+       <!-- Cabinet Back (collision only) -->
+      <!-- <geom pos="0.44 0 0.08" size="0.01 0.175 0.12" type="box" name="cabinet_collision3" friction="0.1 0.005 0.0001"/>  -->
+      <!-- Cabinet Bottom (collision only) -->
+      <!-- <geom pos="0.25 0 -0.04" size="0.2 0.175 0.01" type="box" name="cabinet_collision4" friction="0.1 0.005 0.0001"/> -->
+
+      <!-- Legs (visual only) -->
+      <geom pos="0 0 0" size="0.05 0.1" type="cylinder" conaffinity="0" contype="0" group="1" name="table_leg1_visual" material="table_legs_metal"/>
+      <geom pos="0 0 0" size="0.05 0.1" type="cylinder" conaffinity="0" contype="0" group="1" name="table_leg2_visual" material="table_legs_metal"/>
+      <geom pos="0 0 0" size="0.05 0.1" type="cylinder" conaffinity="0" contype="0" group="1" name="table_leg3_visual" material="table_legs_metal"/>
+      <geom pos="0 0 0" size="0.05 0.1" type="cylinder" conaffinity="0" contype="0" group="1" name="table_leg4_visual" material="table_legs_metal"/>
+    </body>
+
+    <light name="light1" diffuse=".8 .8 .8" dir="0 -.15 -1" directional="false" pos="1 1 4.0" specular="0.3 0.3 0.3" castshadow="false"/>
+    <light name="light2" diffuse=".8 .8 .8" dir="0 -.15 -1" directional="false" pos="-3. -3. 4.0" specular="0.3 0.3 0.3" castshadow="false"/>
+    <light name="undercabinetlights" diffuse=".8 .8 .8" dir=".4 0 -.6" directional="false" pos="-0. 0 1.8" specular="0.3 0.3 0.3" castshadow="true"/>
+    <!-- front view -->
+    <!--<camera mode="fixed" name="frontview" pos="1.6 0 1.45" quat="0.56 0.43 0.43 0.56"/>-->
+    <!-- <camera mode="free" name="backview" pos="-0.8 -0.3 1.1" quat="0.5 0.5 -0.5 -0.5"/> -->
+    <!-- bird view -->
+    <!-- <camera mode="fixed" name="birdview" pos="0. -0.4 2.0" quat="0.7071 0 0 -0.7071"/> -->
+    <!-- agent view -->
+    <!-- <camera mode="fixed" name="agentview" pos="0.5 0 1.35" quat="0.653 0.271 0.271 0.653"/> -->
+    <!-- side view -->
+    <camera mode="fixed" name="sideview" pos="-0.05651774593317116 1.2761224129427358 2" quat="0.009905065491771751 0.006877963156909582 0.5912228352893879 0.806418094001364" />
+    <!-- cabinet view -->
+    <camera mode="fixed" name="cabinetview" pos="-0.05651774593317116 1.2761224129427358 1.8" quat="0.009905065491771751 0.006877963156909582 0.5912228352893879 0.806418094001364" />
+    <!-- <camera mode="fixed" name="cabinetview" pos="-0.571 0.121 1.523" quat="-0.57922797 -0.40557979  0.40557979  0.57922797"/> -->
+    <!-- <camera mode="fixed" name="cabinetview" pos="-0.571 0.271 1.423" quat="0.3535534 0.3535534 -0.6123724 -0.6123724"/>
+     -->
+  </worldbody>
+</mujoco>

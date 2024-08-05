@@ -1,0 +1,21 @@
+<mujoco model="onshape">
+    <compiler angle="radian" meshdir="./" />
+    <size njmax="500" nconmax="100" />
+    <asset>
+        <mesh name="part_1" file="forearm_gripper.stl" />
+    </asset>
+    <worldbody>
+    	<body>
+            <geom quat="-0.707105 0.707108 -0.707105 0.707108" type="mesh" contype="0" conaffinity="0" group="1" rgba="0.615686 0.811765 0.929412 1" mesh="part_1" />
+<!--            <geom quat="0.707105 -0.707108 0 0" type="mesh" mesh="part_1" group="0" name="forearm_collider" solimp="0.2 0.9 0.01" solmix="10000" solref="0.05 1" rgba="0.25 0.25 0.25 1" friction="0.001 0.005 0.0001"/>  -->
+            <geom quat="-0.707105 0.707108 -0.707105 0.707108" type="mesh" mesh="part_1" group="0" name="forearm_collider" solimp="0.9 0.95 0.001 0.5 2" solmix="10000" solref="0.02 1" rgba="0.25 0.25 0.25 1" friction="0.001 0.005 0.0001"/>
+            <site name="grip_site" pos="0 0 0" size="0.01 0.01 0.01" rgba="1 0 0 0.5" type="sphere" group="1"/>
+            <site name="grip_site_cylinder" pos="0 0 0" size="0.005 10" rgba="0 1 0 0.3" type="cylinder" group="1"/>
+            <site name="ft_frame" pos="0 0 0" size="0.01 0.01 0.01" rgba="1 0 0 1" type="sphere" group="1"/>
+        </body>
+    </worldbody>
+    <sensor>
+        <force name="force_ee" site="ft_frame"/>
+        <torque name="torque_ee" site="ft_frame"/>
+    </sensor>
+</mujoco>
